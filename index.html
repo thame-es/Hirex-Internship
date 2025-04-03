@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hirex Solutions</title>
+    <style>
+        :root {
+            --primary: #2ecc71;
+            --primary-dark: #27ae60;
+            --secondary: #1abc9c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: #e1faec;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 150px 0 100px;
+            color: var(--white);
+            /* Remove this slanted clip-path */
+            /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--white);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .hero-animation {
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: float 3s infinite ease-in-out;
+            color: var(--primary); /* or var(--dark) - change text color to be visible */
+            font-weight: bold; /* make text more prominent */
+        }
+        
+        .floating-icon:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            top: 20px;
+            left: 20px;
+            animation-delay: 0s;
+        }
+        
+        .floating-icon:nth-child(2) {
+            width: 70px;
+            height: 70px;
+            top: 120px;
+            right: 20px;
+            animation-delay: 0.5s;
+        }
+        
+        .floating-icon:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            bottom: 40px;
+            left: 80px;
+            animation-delay: 1s;
+        }
+        
+        .floating-icon:nth-child(4) {
+            width: 40px;
+            height: 40px;
+            top: 50px;
+            right: 90px;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        /* Syllabus Section */
+        .syllabus {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .tab-btn:hover {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+        
+        .tab-content {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .syllabus-list {
+            list-style: none;
+        }
+        
+        .syllabus-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.6;
+        }
+        
+        .syllabus-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .syllabus-section {
+            margin-bottom: 25px;
+        }
+        
+        .syllabus-section h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 30px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info li i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+
+        .whatsapp-invite {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50px;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-icon {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Add this for mobile responsiveness */
+@media (max-width: 768px) {
+    .whatsapp-invite {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-btn {
+        padding: 10px 20px;
+    }
+}
+
+/* Add this for the toast notification */
+.toast {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Add this for the WhatsApp icon */
+.whatsapp-svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: white;
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-info svg {
+    margin-right: 10px;
+    min-width: 16px;
+}
+
+.announcement-banner {
+        padding: 40px 0;
+        background: linear-gradient(135deg, #f5f5f5 0%, #e0f7fa 100%);
+        overflow: hidden;
+        position: relative;
+        border-top: 1px solid rgba(46, 204, 113, 0.3);
+        border-bottom: 1px solid rgba(46, 204, 113, 0.3);
+    }
+    
+    .announcement-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        animation: shine 3s infinite;
+        z-index: 1;
+    }
+    
+    @keyframes shine {
+        100% {
+            left: 200%;
+        }
+    }
+    
+    .countdown-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+        position: relative;
+        z-index: 5;
+    }
+    
+    .gradient-title {
+        font-size: 2.4rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        background: linear-gradient(90deg, #2ecc71, #1abc9c, #3498db, #2ecc71);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientText 6s ease infinite;
+        text-shadow: 0 2px 10px rgba(46, 204, 113, 0.2);
+    }
+    
+    @keyframes gradientText {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+    .announcement-text p {
+        font-size: 1.2rem;
+        color: var(--dark);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .highlight-date {
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 1.4rem;
+        position: relative;
+        padding: 0 5px;
+        background: linear-gradient(90deg, #2ecc71, #27ae60);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .highlight-date::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #2ecc71, #27ae60, #2ecc71);
+        animation: shimmerLine 2s infinite;
+    }
+    
+    @keyframes shimmerLine {
+        0% {
+            background-position: -100px;
+        }
+        100% {
+            background-position: 100px;
+        }
+    }
+    
+    .countdown {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .time-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .days-container {
+        background: linear-gradient(145deg, #2ecc71, #27ae60);
+        border-radius: 12px;
+        padding: 15px 25px;
+        box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3), 
+                    inset 0 -5px 10px rgba(0, 0, 0, 0.1),
+                    inset 0 5px 10px rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+        min-width: 120px;
+        transform: perspective(500px) rotateX(10deg);
+        transition: all 0.3s ease;
+    }
+    
+    .days-container:hover {
+        transform: perspective(500px) rotateX(0deg) scale(1.05);
+    }
+    
+    .days-container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+        transform: rotate(30deg);
+        pointer-events: none;
+    }
+    
+    .days-container span {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: white;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .time-label {
+        margin-top: 12px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background: linear-gradient(90deg, #2c3e50, #34495e);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 1px;
+    }
+    
+    .enroll-btn {
+        display: inline-block;
+        background: linear-gradient(45deg, #2ecc71, #27ae60);
+        color: white;
+        padding: 14px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 15px rgba(46, 204, 113, 0.3);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        animation: pulse 2s infinite;
+    }
+    
+    .enroll-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+        transition: all 0.4s ease;
+        z-index: -1;
+    }
+    
+    .enroll-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 12px 20px rgba(46, 204, 113, 0.4);
+    }
+    
+    .enroll-btn:hover::before {
+        left: 100%;
+    }
+    
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+        }
+        70% {
+            box-shadow: 0 0 0 15px rgba(46, 204, 113, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+        }
+    }
+    
+    /* Animated gradient orbs in background */
+    .gradient-orbs {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    
+    .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(30px);
+        opacity: 0.4;
+    }
+    
+    .orb1 {
+        top: -50px;
+        right: 10%;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, rgba(46, 204, 113, 0.8) 0%, rgba(46, 204, 113, 0) 70%);
+        animation: floatOrb 8s infinite ease-in-out;
+    }
+    
+    .orb2 {
+        bottom: -70px;
+        left: 15%;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(26, 188, 156, 0.8) 0%, rgba(26, 188, 156, 0) 70%);
+        animation: floatOrb 12s infinite ease-in-out reverse;
+    }
+    
+    .orb3 {
+        top: 40%;
+        left: 30%;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, rgba(52, 152, 219, 0.8) 0%, rgba(52, 152, 219, 0) 70%);
+        animation: floatOrb 10s infinite ease-in-out 2s;
+    }
+    
+    @keyframes floatOrb {
+        0%, 100% {
+            transform: translate(0, 0);
+        }
+        25% {
+            transform: translate(30px, 20px);
+        }
+        50% {
+            transform: translate(10px, 40px);
+        }
+        75% {
+            transform: translate(-20px, 10px);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .countdown-container {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .gradient-title {
+            font-size: 2rem;
+        }
+        
+        .days-container {
+            min-width: 100px;
+        }
+        
+        .days-container span {
+            font-size: 2.2rem;
+        }
+    }
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+                    <div class="logo-text">Hirex Solutions</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#syllabus">Syllabus</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Python Programming & Data Science Internship</h1>
+                    <p>Comprehensive training in Core Python, Data Analysis, Visualization and Machine Learning. Start your journey to become a proficient developer with our structured curriculum.</p>
+                    <a href="#syllabus" class="btn">Explore Syllabus</a>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-animation"> 
+                        <div class="floating-icon">PY</div>
+                        <div class="floating-icon">ML</div>
+                        <div class="floating-icon">DS</div>
+                        <div class="floating-icon">AI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="announcement-banner">
+        <div class="container">
+            <div class="countdown-container">
+                <div class="announcement-text">
+                    <div class="gradient-title">Classes Commencing Soon!</div>
+                    <p>Next batch starts on <span class="highlight-date">April 10, 2025</span></p>
+                </div>
+                <div class="countdown" id="countdown">
+                    <div class="time-box">
+                        <div class="days-container">
+                            <span id="days">00</span>
+                        </div>
+                        <span class="time-label">Days</span>
+                    </div>
+                </div>
+                <a href="#contact" class="enroll-btn">Enroll Now</a>
+            </div>
+        </div>
+        <div class="gradient-orbs">
+            <div class="orb orb1"></div>
+            <div class="orb orb2"></div>
+            <div class="orb orb3"></div>
+        </div>
+    </section>
+    
+    <!-- Syllabus Section -->
+    <section class="syllabus" id="syllabus">
+        <div class="container">
+            <div class="section-title">
+                <h2>Internship Syllabus</h2>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="python-basics">Python Basics</button>
+                <button class="tab-btn" data-tab="python-libraries">Python Libraries</button>
+                <button class="tab-btn" data-tab="data-visualization">Data Visualization</button>
+                <button class="tab-btn" data-tab="bi-tools">Tableau & PowerBI</button>
+                <button class="tab-btn" data-tab="machine-learning">Machine Learning</button>
+                <button class="tab-btn" data-tab="ai-intro">Introduction to AI</button>
+            </div>
+            
+            <div class="tab-content active" id="python-basics">
+                <div class="syllabus-section">
+                    <h3>Python Basics</h3>
+                    <ul class="syllabus-list">
+                        <li>Introduction to Python</li>
+                        <li>Variables, Data Types, and Type Conversion</li>
+                        <li>Operators</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Control Flow & Functions</h3>
+                    <ul class="syllabus-list">
+                        <li>Conditional Statements</li>
+                        <li>Loops (for, while) & Loop Control Statements (break, continue, pass)</li>
+                        <li>Functions</li>
+                        <li>Lambda Functions</li>
+                        <li>Recursion</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Data Structures in Python</h3>
+                    <ul class="syllabus-list">
+                        <li>Lists & Tuples (Indexing, Slicing, Methods)</li>
+                        <li>Dictionaries & Sets</li>
+                        <li>List Comprehensions</li>
+                        <li>Dictionary & Set Comprehensions</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Object-Oriented Programming (OOP)</h3>
+                    <ul class="syllabus-list">
+                        <li>Classes & Objects</li>
+                        <li>Constructors (_init_ method)</li>
+                        <li>Inheritance & Polymorphism</li>
+                        <li>Method Overriding</li>
+                        <li>Encapsulation & Abstraction</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Python Augmentation – Modules & Libraries</h3>
+                    <ul class="syllabus-list">
+                        <li>Working with Built-in Modules (math, random, datetime, os)</li>
+                        <li>Creating & Importing User-Defined Modules</li>
+                        <li>Introduction to NumPy & Pandas</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="python-libraries">
+                <div class="syllabus-section">
+                    <h3>Introduction to NumPy</h3>
+                    <ul class="syllabus-list">
+                        <li>What is NumPy and why it's essential for data science</li>
+                        <li>Installing and importing NumPy</li>
+                        <li>NumPy Arrays vs Python Lists</li>
+                        <li>Array creation methods</li>
+                        <li>Array indexing and slicing</li>
+                        <li>Basic array operations</li>
+                        <li>Broadcasting and element-wise operations</li>
+                        <li>Array reshaping and resizing</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Advanced NumPy Techniques</h3>
+                    <ul class="syllabus-list">
+                        <li>Random number generation</li>
+                        <li>Aggregation methods</li>
+                        <li>Linear Algebra with NumPy</li>
+                        <li>Working with multidimensional arrays (3D arrays)</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Introduction to Pandas</h3>
+                    <ul class="syllabus-list">
+                        <li>Introduction to Pandas and its importance</li>
+                        <li>Creating Series and DataFrames</li>
+                        <li>Loading data from various file formats</li>
+                        <li>DataFrame operations</li>
+                        <li>Handling missing data</li>
+                        <li>Sorting and filtering data</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Data Manipulation with Pandas</h3>
+                    <ul class="syllabus-list">
+                        <li>GroupBy operations (grouping, aggregating, transforming)</li>
+                        <li>Merging and joining DataFrames (merge, join, concat)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="data-visualization">
+                <div class="syllabus-section">
+                    <h3>Introduction to Data Visualization with Matplotlib</h3>
+                    <ul class="syllabus-list">
+                        <li>Introduction to Matplotlib (why it's essential for data visualization)</li>
+                        <li>Basic plotting (line plot, bar plot, scatter plot)</li>
+                        <li>Customizing plots (titles, labels, legends, grids)</li>
+                        <li>Creating subplots</li>
+                        <li>Plotting multiple datasets</li>
+                        <li>Adjusting figure size and resolution</li>
+                        <li>Saving plots to a file (PNG, SVG, PDF)</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Data Visualization with Seaborn</h3>
+                    <ul class="syllabus-list">
+                        <li>Introduction to Seaborn (built on top of Matplotlib, more user-friendly)</li>
+                        <li>Common plot types in Seaborn (scatterplot, barplot, lineplot, boxplot, violinplot, pairplot)</li>
+                        <li>Customizing Seaborn plots (themes, colors, and labels)</li>
+                        <li>Visualizing distributions with histplot, distplot, and kdeplot</li>
+                        <li>Heatmaps and correlation matrices</li>
+                        <li>Using Seaborn with Pandas DataFrames</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="bi-tools">
+                <div class="syllabus-section">
+                    <h3>Tableau and PowerBI</h3>
+                    <ul class="syllabus-list">
+                        <li>Introduction to Tableau and Power BI</li>
+                        <li>Data Preparation and Cleaning</li>
+                        <li>Creating Visualizations and Charts</li>
+                        <li>Advanced Visualizations and Interactivity</li>
+                        <li>Data Modeling and Calculations</li>
+                        <li>Dashboard Design and Publishing</li>
+                        <li>Project: Create a complete report or dashboard in either Tableau or Power BI using a dataset</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="machine-learning">
+                <div class="syllabus-section">
+                    <h3>Introduction to Machine Learning</h3>
+                    <ul class="syllabus-list">
+                        <li>What is Machine Learning?</li>
+                        <li>Types of Machine Learning</li>
+                        <li>ML Workflow</li>
+                        <li>Tools & Libraries: Introduction to ML libraries like Pandas, NumPy, MatplotLib</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Data Preprocessing and Exploration</h3>
+                    <ul class="syllabus-list">
+                        <li>Data Collection and Types</li>
+                        <li>Data Cleaning</li>
+                        <li>Data Transformation</li>
+                        <li>Exploratory Data Analysis (EDA)</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Supervised Learning</h3>
+                    <ul class="syllabus-list">
+                        <li>Linear Regression</li>
+                        <li>Introduction to Classification Problems</li>
+                        <li>Logistic Regression</li>
+                        <li>K-Nearest Neighbors (KNN)</li>
+                        <li>Decision Trees: Basic concept and how they work</li>
+                        <li>Model Evaluation for Classification</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Unsupervised Learning – Clustering</h3>
+                    <ul class="syllabus-list">
+                        <li>Introduction to Unsupervised Learning</li>
+                        <li>K-Means Clustering</li>
+                        <li>DBSCAN</li>
+                        <li>CAPSTONE PROJECT</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="ai-intro">
+                <div class="syllabus-section">
+                    <h3>Introduction to AI</h3>
+                    <ul class="syllabus-list">
+                        <li>Introduction to AI and History</li>
+                        <li>Basic Concepts and Types of AI</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Machine Learning (ML) Basics</h3>
+                    <ul class="syllabus-list">
+                        <li>Key Types of ML</li>
+                        <li>Important Algorithms in ML: Linear regression, Support Vector Machines (SVM), k-Nearest Neighbors (k-NN)</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Natural Language Processing (NLP) Basics</h3>
+                    <ul class="syllabus-list">
+                        <li>Core Tasks in NLP: Text Classification, Sentiment Analysis, Named Entity Recognition (NER), Machine Translation, Speech Recognition</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>Deep Learning and Neural Networks</h3>
+                    <ul class="syllabus-list">
+                        <li>Working of Neural Networks</li>
+                        <li>Convolutional Neural Networks (CNNs)</li>
+                        <li>Creating Sequential Model</li>
+                    </ul>
+                </div>
+                
+                <div class="syllabus-section">
+                    <h3>AI Applications</h3>
+                    <ul class="syllabus-list">
+                        <li>AI in Real-World Applications</li>
+                        <li>Challenges and Future of AI</li>
+                        <li>Project: Building a basic AI model or using an AI tool</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Internship Highlights</h2>
+            </div>
+            
+            <div class="features-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 800px; margin: 0 auto;">
+                                
+                <div class="feature-card" style="padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background-color: white;">
+                    <div class="feature-icon" style="margin-bottom: 15px;">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 14C8.7 14 6 11.3 6 8V7.2C6 4 8.7 1.5 12 1.5C15.3 1.5 18 4 18 7.2V8C18 11.3 15.3 14 12 14Z" fill="#4A86E8" stroke="#2A5DB0" stroke-width="1.5"/>
+                            <path d="M18.2 14.2L19.6 15.6C20.4 16.4 20.4 17.7 19.6 18.5L18.5 19.6C17.7 20.4 16.4 20.4 15.6 19.6L14.2 18.2" stroke="#2A5DB0" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M9.8 14.2L8.4 15.6C7.6 16.4 7.6 17.7 8.4 18.5L9.5 19.6C10.3 20.4 11.6 20.4 12.4 19.6L13.8 18.2" stroke="#2A5DB0" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M12 14V22.5" stroke="#2A5DB0" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M8 22.5H16" stroke="#2A5DB0" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="10" cy="7" r="1" fill="#2A5DB0"/>
+                            <circle cx="14" cy="7" r="1" fill="#2A5DB0"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin: 0 0 10px 0; color: #333; font-size: 18px;">Expert Mentorship</h3>
+                    <p style="margin: 0; color: #666; font-size: 14px;">Get guidance from industry professionals with extensive experience in Python development and data science.</p>
+                </div>
+                
+                <div class="feature-card" style="padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background-color: white;">
+                    <div class="feature-icon" style="margin-bottom: 15px;">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#FFD700" stroke="#E8B10C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" fill="#E8B10C"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin: 0 0 10px 0; color: #333; font-size: 18px;">Certification</h3>
+                    <p style="margin: 0; color: #666; font-size: 14px;">Receive a recognized certification upon successful completion of the internship program and final project.</p>
+                </div>
+                
+                <div class="feature-card" style="padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background-color: white;">
+                    <div class="feature-icon" style="margin-bottom: 15px;">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L12 6" stroke="#E34C26" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M18.36 5.64L15.54 8.46" stroke="#E34C26" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M22 12L18 12" stroke="#E34C26" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M18.36 18.36L15.54 15.54" stroke="#E34C26" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 22L12 18" stroke="#E34C26" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M5.64 18.36L8.46 15.54" stroke="#E34C26" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M2 12L6 12" stroke="#E34C26" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M5.64 5.64L8.46 8.46" stroke="#E34C26" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 8C9.79 8 8 9.79 8 12C8 14.21 9.79 16 12 16C14.21 16 16 14.21 16 12C16 9.79 14.21 8 12 8Z" fill="#E34C26"/>
+                            <path d="M12 6V13L16 10" fill="#E34C26"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin: 0 0 10px 0; color: #333; font-size: 18px;">Career Support</h3>
+                    <p style="margin: 0; color: #666; font-size: 14px;">Get assistance with resume building, interview preparation, and job placement opportunities.</p>
+                </div>
+                
+                <div class="feature-card" style="padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background-color: white;">
+                    <div class="feature-icon" style="margin-bottom: 15px;">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#3B5998" stroke-width="1.5"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" stroke="#3B5998" stroke-width="1.5"/>
+                            <path d="M5 12H7M12 12H19M7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17C9.24 17 7 14.76 7 12Z" stroke="#3B5998" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="7" cy="12" r="1" fill="#3B5998"/>
+                            <circle cx="12" cy="12" r="1" fill="#3B5998"/>
+                            <circle cx="19" cy="12" r="1" fill="#3B5998"/>
+                        </svg>
+                    </div>
+                    <h3 style="margin: 0 0 10px 0; color: #333; font-size: 18px;">Networking Opportunities</h3>
+                    <p style="margin: 0; color: #666; font-size: 14px;">Connect with like-minded individuals and build your professional network in the tech community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>We offers EOR, BPO, IT consulting, Internship programs and digital marketing services. <br> We are dedicated to transforming businesses.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            +91 7306677258
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16l3-3 2 2 2-2 2 2 2-2 3 3z"></path>
+                            </svg>
+                            Infopark Phase Two Road, Kakkanad, Kochi
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="syllabus-list">
+                        <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#syllabus" style="color: white; text-decoration: none;">Syllabus</a></li>
+                        <li><a href="#features" style="color: white; text-decoration: none;">Features</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2022 Hirex Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-invite">
+        <a href="https://chat.whatsapp.com/YOUR_GROUP_INVITE_CODE" class="whatsapp-btn" id="whatsapp-btn">
+            <svg class="whatsapp-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+            Join WhatsApp Group
+        </a>
+    </div>
+    
+    <div class="toast" id="toast-notification">
+        Joining WhatsApp group...
+    </div>
+    
+    <script>
+        // Tab Switching
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        tabBtns.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Show corresponding content
+        const tabId = btn.getAttribute('data-tab');
+        
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.id === tabId) {
+                content.classList.add('active');
+            }
+        });
+    });
+});
+
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            // Increase this offset to ensure sections start at the top
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Increased from 70 to 80
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Make header sticky with background change on scroll
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+        header.style.background = 'var(--white)';
+    } else {
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        header.style.background = 'var(--white)';
+    }
+});
+
+// Initialize the first tab as active
+window.addEventListener('DOMContentLoaded', () => {
+    // Make sure the first tab is active by default
+    const firstTabBtn = document.querySelector('.tab-btn');
+    const firstTabContent = document.querySelector('.tab-content');
+    
+    if (firstTabBtn && firstTabContent) {
+        firstTabBtn.classList.add('active');
+        firstTabContent.classList.add('active');
+    }
+    
+    // Check if URL has a hash and scroll to that section
+    if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }, 300);
+        }
+    }
+});
+
+
+
+// Mobile menu toggle (if you want to add mobile responsiveness)
+// This part is optional but recommended for better mobile experience
+const addMobileMenu = () => {
+    // Create mobile menu button
+    const headerContent = document.querySelector('.header-content');
+    const nav = document.querySelector('nav');
+    
+    // Create mobile menu button
+    const mobileMenuBtn = document.createElement('div');
+    mobileMenuBtn.classList.add('mobile-menu-btn');
+    mobileMenuBtn.innerHTML = '☰';
+    mobileMenuBtn.style.display = 'none';
+    mobileMenuBtn.style.fontSize = '24px';
+    mobileMenuBtn.style.cursor = 'pointer';
+    
+    // Insert button before nav
+    headerContent.insertBefore(mobileMenuBtn, nav);
+    
+    // Add toggle functionality
+    mobileMenuBtn.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+    
+    // Handle window resize
+    const handleResize = () => {
+        if (window.innerWidth <= 768) {
+            mobileMenuBtn.style.display = 'block';
+            nav.style.display = 'none';
+            nav.style.position = 'absolute';
+            nav.style.top = '80px';
+            nav.style.left = '0';
+            nav.style.width = '100%';
+            nav.style.backgroundColor = 'var(--white)';
+            nav.style.boxShadow = '0 5px 10px rgba(0, 0, 0, 0.1)';
+            nav.style.padding = '20px 0';
+            
+            // When menu is active
+            if (nav.classList.contains('active')) {
+                nav.style.display = 'block';
+            }
+        } else {
+            mobileMenuBtn.style.display = 'none';
+            nav.style.display = 'block';
+            nav.style.position = 'static';
+            nav.style.width = 'auto';
+            nav.style.backgroundColor = 'transparent';
+            nav.style.boxShadow = 'none';
+            nav.style.padding = '0';
+        }
+    };
+    
+    // Initial call and event listener
+    window.addEventListener('resize', handleResize);
+    handleResize();
+};
+// Call the addMobileMenu function to initialize mobile menu
+addMobileMenu();
+
+// WhatsApp join button with tracking
+document.getElementById('whatsapp-btn').addEventListener('click', function(e) {
+        // Show toast notification
+        const toast = document.getElementById('toast-notification');
+        toast.classList.add('show');
+        
+        // Hide toast after 3 seconds
+        setTimeout(function() {
+            toast.classList.remove('show');
+        }, 3000);
+        
+        // Optional: Track clicks with analytics (if you have analytics set up)
+        if (typeof gtag === 'function') {
+            gtag('event', 'click', {
+                'event_category': 'engagement',
+                'event_label': 'whatsapp_group_join'
+            });
+        }
+    });
+    
+    // Optional: Add dynamic date to the group name
+    const addDynamicDate = () => {
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const now = new Date();
+        const month = months[now.getMonth()];
+        const year = now.getFullYear();
+        
+        document.getElementById('whatsapp-btn').innerHTML = `
+            <svg class="whatsapp-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+            Join ${month} ${year} Batch
+        `;
+    };
+    
+    // Call the function to update the button text with current date
+    addDynamicDate();
+
+// Set the date we're counting down to
+const countDownDate = new Date("Apr 10, 2025 00:00:00").getTime();
+    
+    // Update the countdown every 1 second
+    const x = setInterval(function() {
+        // Get current date and time
+        const now = new Date().getTime();
+        
+        // Find the distance between now and the countdown date
+        const distance = countDownDate - now;
+        
+        // Time calculations for days only
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        
+        // Display the result
+        document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+        
+        // If the countdown is finished, display message
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "<div class='started-message'>Classes Have Started!</div>";
+        }
+    }, 1000);
+
+</script>
+</body>
+</html>
