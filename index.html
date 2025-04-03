@@ -767,6 +767,83 @@ nav ul li a:hover::after {
             nav ul li {
                 margin: 0 10px;
             }
+
+            .features-grid {
+                grid-template-columns: 1fr;  /* Change to single column on mobile */
+                max-width: 100%;             /* Allow full width use */
+                padding: 0 15px;             /* Add some padding on the sides */
+            }
+            
+            .feature-card {
+                width: 100%;                 /* Ensure cards use full available width */
+                box-sizing: border-box;      /* Include padding in width calculation */
+            }
+
+            .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+    
+    .hero-text h1::after {
+        left: 50%;
+        transform: translateX(-50%); /* Center the underline */
+    }
+    
+    .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+    }
+    
+    .hero-image {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .hero-animation {
+        margin: 0 auto; /* Center the animation */
+        width: 250px; /* Slightly smaller for mobile */
+        height: 250px;
+    }
+    
+    /* Adjust floating icons for smaller screen */
+    .floating-icon:nth-child(1) {
+        width: 50px;
+        height: 50px;
+        top: 10px;
+        left: 40px;
+    }
+    
+    .floating-icon:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        top: 100px;
+        right: 40px;
+    }
+    
+    .floating-icon:nth-child(3) {
+        width: 45px;
+        height: 45px;
+        bottom: 30px;
+        left: 70px;
+    }
+    
+    .floating-icon:nth-child(4) {
+        width: 35px;
+        height: 35px;
+        top: 40px;
+        right: 70px;
+    }
         }
 
         .whatsapp-invite {
@@ -1150,7 +1227,15 @@ nav ul li a:hover::after {
             font-size: 2.2rem;
         }
     }
-        
+    
+    .justify-text {
+    text-align: justify;
+    hyphens: auto;
+    word-spacing: -1px;
+      max-width: 600px;
+      margin: auto;
+}
+
     </style>
 </head>
 <body>
@@ -1179,7 +1264,7 @@ nav ul li a:hover::after {
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Python Programming & Data Science Internship</h1>
+                    <h1>Python Programming & Data Science Online Internships</h1>
                     <p>Comprehensive training in Core Python, Data Analysis, Visualization and Machine Learning. Start your journey to become a proficient developer with our structured curriculum.</p>
                     <a href="#syllabus" class="btn">Explore Syllabus</a>
                 </div>
@@ -1224,7 +1309,7 @@ nav ul li a:hover::after {
     <section class="syllabus" id="syllabus">
         <div class="container">
             <div class="section-title">
-                <h2>Internship Syllabus</h2>
+                <h2>Syllabus</h2>
             </div>
             
             <div class="tabs">
@@ -1469,7 +1554,7 @@ nav ul li a:hover::after {
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Internship Highlights</h2>
+                <h2>Highlights</h2>
             </div>
             
             <div class="features-grid">
@@ -1488,7 +1573,7 @@ nav ul li a:hover::after {
                 </svg>
             </div>
             <h3>Expert Mentorship</h3>
-            <p>Get guidance from industry professionals with extensive experience in Python development and data science.</p>
+            <p class="justify-text">Get guidance from industry professionals with extensive experience in Python development and data science.</p>
         </div>
         
         <div class="feature-card">
@@ -1501,7 +1586,7 @@ nav ul li a:hover::after {
                 </svg>
             </div>
             <h3>Certification</h3>
-            <p>Receive a recognized certification upon successful completion of the internship program and final project.</p>
+            <p class="justify-text">Receive a recognized certification upon successful completion of the internship program and Performers Get a Chance for a Stipend Internship.</p>
         </div>
         
         <div class="feature-card">
@@ -1523,7 +1608,7 @@ nav ul li a:hover::after {
                 </svg>
             </div>
             <h3>Career Support</h3>
-            <p>Get assistance with resume building, interview preparation, and job placement opportunities.</p>
+            <p class="justify-text">Get assistance with resume building, interview preparation, and job placement opportunities.</p>
         </div>
         
         <div class="feature-card">
@@ -1544,7 +1629,7 @@ nav ul li a:hover::after {
                 </svg>
             </div>
             <h3>Networking Opportunities</h3>
-            <p>Connect with like-minded individuals and build your professional network in the tech community.</p>
+            <p class="justify-text">Connect with like-minded individuals and build your professional network in the tech community.</p>
         </div>
     </div>
         </div>
@@ -1568,6 +1653,27 @@ nav ul li a:hover::after {
                             </svg>
                             +91 7306677258
                         </li>
+
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            <a href="https://www.instagram.com/hirex_solutions" style="color: #ffffff; text-decoration: none;">@hirex_solutions</a>
+                        </li>
+
+
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                            <a href="https://hirexsolutions.com" style="color: #ffffff; text-decoration: none;">hirexsolutions.com</a>
+                        </li>
+
+                        
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16l3-3 2 2 2-2 2 2 2-2 3 3z"></path>
@@ -1808,6 +1914,12 @@ const countDownDate = new Date("Apr 10, 2025 00:00:00").getTime();
             document.getElementById("countdown").innerHTML = "<div class='started-message'>Classes Have Started!</div>";
         }
     }, 1000);
+
+
+// When the page is loaded/refreshed, scroll to the top
+window.onload = function() {
+  window.scrollTo(0, 0);
+  }
 
 </script>
 </body>
